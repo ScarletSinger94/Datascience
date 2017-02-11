@@ -1,0 +1,10 @@
+age= 16
+if (age <14):
+    print ("You are a not in highschool")
+elif (age>=14 and age<=18):
+    print ("You are a Highschooler")
+elif (age>18):
+    print ("Youre not a highschooler anymore")
+    
+    Lots of fun stuff to be had
+    

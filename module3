@@ -1,0 +1,52 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import statsmodels.api as sm
+
+df = pd.read_csv('boston.csv', index_col=0)
+#print("CRIM",np.corrcoef(df.NOX,df.CRIM)[0,1])
+print("NDUS",np.corrcoef(df.NOX,df.NDUS)[0,1])
+print("ZN",np.corrcoef(df.NOX,df.ZN)[0,1])
+print("CHAS",np.corrcoef(df.NOX,df.CHAS)[0,1])
+print("RM",np.corrcoef(df.NOX,df.RM)[0,1])
+print("AGE",np.corrcoef(df.NOX,df.AGE)[0,1])
+print("DIS",np.corrcoef(df.NOX,df.DIS)[0,1])
+print("RAD",np.corrcoef(df.NOX,df.RAD)[0,1])
+print("TAX",np.corrcoef(df.NOX,df.TAX)[0,1])
+print("PTRATIO",np.corrcoef(df.NOX,df.PTRATIO)[0,1])
+print("B",np.corrcoef(df.NOX,df.B)[0,1])
+print("LSTAT",np.corrcoef(df.NOX,df.LSTAT)[0,1])
+print("MEDV",np.corrcoef(df.NOX,df.MEDV)[0,1])
+
+#print("CRIM",np.corrcoef(df.MEDV,df.CRIM)[0,1])
+print("NDUS",np.corrcoef(df.MEDV,df.NDUS)[0,1])
+print("ZN",np.corrcoef(df.MEDV,df.ZN)[0,1])
+print("CHAS",np.corrcoef(df.MEDV,df.CHAS)[0,1])
+print("RM",np.corrcoef(df.MEDV,df.RM)[0,1])
+print("AGE",np.corrcoef(df.MEDV,df.AGE)[0,1])
+print("DIS",np.corrcoef(df.MEDV,df.DIS)[0,1])
+print("RAD",np.corrcoef(df.MEDV,df.RAD)[0,1])
+print("TAX",np.corrcoef(df.MEDV,df.TAX)[0,1])
+print("PTRATIO",np.corrcoef(df.MEDV,df.PTRATIO)[0,1])
+print("B",np.corrcoef(df.MEDV,df.B)[0,1])
+print("LSTAT",np.corrcoef(df.MEDV,df.LSTAT)[0,1])
+print("NOX",np.corrcoef(df.MEDV,df.NOX)[0,1])
+
+fig=plt.scatter(df.LSTAT,df.MEDV)
+plt.xlabel('MEDV', fontsize=18)
+plt.ylabel('LSTAT', fontsize=16)
+y=df.NOX
+X=df.DIS
+X =sm.add_constant(X) 
+
+lr_model= sm.OLS(y,X).fit()
+print(lr_model.summary())
+
+
+
+y=df.MEDV
+X=df.LSTAT
+X =sm.add_constant(X) 
+
+lr_model= sm.OLS(y,X).fit()
+print(lr_model.summary())
